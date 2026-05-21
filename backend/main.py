@@ -362,7 +362,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="OmniVoice Studio API",
+    title="OmniVoice Studio API - Modified by Kaji",
     version="0.4.0",
     lifespan=lifespan,
     docs_url=None,       # Disabled — replaced by Scalar at /docs
