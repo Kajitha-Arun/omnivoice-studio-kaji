@@ -25,7 +25,7 @@ from abc import ABC, abstractmethod
 from typing import Optional
 
 import torch
-
+from services.shabd_backend import ShabdTTSBackend
 logger = logging.getLogger("omnivoice.tts")
 
 
@@ -1099,6 +1099,7 @@ class _LazyRegistry(dict):
 _REGISTRY: dict[str, type[TTSBackend]] = _LazyRegistry({
     "omnivoice":     OmniVoiceBackend,
     "cosyvoice":     CosyVoiceBackend,
+    "shabd": ShabdTTSBackend,
     "kittentts":     KittenTTSBackend,
     "mlx-audio":     MLXAudioBackend,
     "voxcpm2":       VoxCPM2Backend,
