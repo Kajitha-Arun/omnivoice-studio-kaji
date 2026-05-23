@@ -5,7 +5,7 @@ import torch
 import torchaudio
 import io
 from dotenv import load_dotenv
-exit()
+
 load_dotenv()
 
 class ShabdTTSBackend:
@@ -39,7 +39,7 @@ class ShabdTTSBackend:
 
         payload = {
             "text": text,
-            "language": "english",
+            "language": "tamil",
             "gender": "male",
             "format": "wav",
             "sampleRate": 22050,
@@ -53,7 +53,7 @@ class ShabdTTSBackend:
         )
 
         if response.status_code == 200:
-            with open("shabd_output.wav", "wb") as audio_file:
+            with open("tamil_shabd_output.wav", "wb") as audio_file:
                 audio_file.write(response.content)
             audio_bytes = io.BytesIO(response.content)
             waveform, sample_rate = torchaudio.load(audio_bytes)
@@ -70,4 +70,4 @@ if __name__ == "__main__":
 
     shabd = ShabdTTSBackend()
 
-    shabd.generate("Hello from Shabd API integration")
+    shabd.generate("இந்த உலகில் மிகவும் எளிதானது, நம்மால் செய்ய முடியாத விஷயங்களை பற்றியே சிந்தித்து கொண்டிருப்பது. ஆனால் முயற்சி மற்றும் உறுதி தான் திறமையை விட வலிமையானது.")
